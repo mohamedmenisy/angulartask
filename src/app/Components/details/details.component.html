@@ -1,0 +1,16 @@
+<div class="row align-items-center min-vh-100">
+    <div class="col-md-4 ">
+     
+        <img [src]="myproduct?.imgUrl" class="w-50" alt="">
+    </div>
+    <div class="col-md-8">
+        <p>name: {{myproduct?.name}}</p>
+        <p>category : {{myproduct?.catg}}</p>
+        <p>Price : {{myproduct?.price |currency}}</p>
+            <button class="btn btn-info mx-3" (click)="NextProduct(myproduct?.id)">Next Product</button>
+            <button class="btn btn-info mx-3" (click)="PrevProduct(myproduct?.id)">previous Product</button>
+            <button class="btn btn-danger" (click)="BackToPage()" >Back To Products</button>
+              
+            
+    </div>
+</div>

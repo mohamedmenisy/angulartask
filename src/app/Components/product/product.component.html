@@ -1,0 +1,17 @@
+<div (click)="routeToDetails(Product.id)">
+    <div class="card" >
+        <img [src]="Product.imgUrl" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{Product.name | pipeName}}</h5>
+          <p class="card-text">Quantity: {{Product.quantity}}</p>
+          <p class="card-text">Price: {{Product.price |currency}}</p>
+          
+          @if (Product.qWanted != 0) {
+            <p>Quantity Wanted : {{Product.qWanted}}</p>
+          }
+          <button class="btn btn-primary" (click)="addproductToCart($event,Product)">Add To Cart</button>
+          <button [disabled]="Product.quantity==0" class="btn btn-primary mx-3" (click)="handelQuantity($event,Product)">+</button>
+          
+        </div>
+      </div>
+</div>

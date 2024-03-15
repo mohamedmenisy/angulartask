@@ -1,0 +1,104 @@
+<!-- <div class="row g-3">
+    <div class="col-md-4">
+        <div class="item m-2 bg-danger p-3 text-center">
+            <p><span class="text-dark fw-bold">Client Name </span>: {{ClientName}}</p>
+            <img src="../../../assets/el_hover_img1.jpg" [class]="shoImg?'vimg':'himg'" alt="">
+            <button class="btn btn-info" (click)="toggleImg()">{{shoImg?"Hide img":"Show img"}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 my-3">
+    <div class="col-md-12">
+       <div class="text-center divv">
+        @if (IsPurshased) {
+            <img [src]="logoimg" class="w-25 rounded-5" alt="">
+        }@else {
+            <h3 class="text-dark">“Thanks for purchasing from our Store” {{ClientName}}</h3>
+        }
+       </div>
+    </div>
+
+    @for (product of products; track product.id) {
+        <div class="col-md-3">
+
+           
+            <div class="card" appHighlight  [qun]="product.quantity" [ngClass]="{'bg-warning': product.quantity==1,'bg-success':product.quantity>1}">
+                <div class="card-img"><img [src]="product.imgUrl" alt=""></div>
+                <div class="card-info">
+                  <p class="text-title">{{product.name}}</p>
+                  <p class="text-body">Quantity: {{product.quantity}}</p>
+                </div>
+                <div class="card-footer">
+                <span class="text-title">{{product.price}}$</span>
+               
+              </div>
+              @if(product.discount) {
+                <p>“We offer an explicit discount of: 50%”</p>
+                <p class="text-danger fw-bold">new price is {{product.price* 50/100}}$</p>
+            }@else{
+                <h4>No discount</h4>
+            }
+            @switch (product.quantity) {
+                @case (1) {
+                    <p>last one item</p>
+                }
+                @case (2) {
+                    <p>last two items</p>
+                }
+                @case (0) {
+                    <p>out of stock </p>
+                }
+               
+            }
+
+            <button [disabled]="product.quantity==0" class="btn btn-info" (click)="buyNow(product)">Buy</button>
+            </div>
+
+           
+        </div>
+    }
+</div> -->
+
+<div class="row my-3 g-3">
+    <div class="col-md-12 ">
+        <div class="text-center divv">
+         @if (IsPurshased) {
+             <img [src]="logoimg" class="w-25 rounded-5" alt="">
+         }@else {
+             <h3 class="text-dark">“Thanks for purchasing from our Store” {{ClientName}}</h3>
+         }
+        </div>
+     </div>
+
+    
+
+     <div class="col-md-12">
+        <!-- search task -->
+        <h4 class="my-3">Search Now</h4>
+        <input type="search" class="form-control my-3" placeholder="Search Now" [(ngModel)]="searchText" (ngModelChange)="searchArr()">
+       <!-- select task -->
+        <select class="form-control my-3" [(ngModel)]="selectVal" (ngModelChange)="searchBySelectedValue()">
+            <option >select Category</option>
+           <option  value="All" >All</option>
+           <option value="Clothing">Clothing</option>
+           <option value="elec">elec</option>
+        
+        </select>
+       
+     </div>
+     @for (myproduct of products; track $index) {
+        <div class="col-md-3">
+            <!-- <a [routerLink]="'/details/'+myproduct.id"><app-product [Product]="myproduct"></app-product></a> -->
+            <app-product [Product]="myproduct"></app-product>
+        </div>
+       
+
+     }
+
+
+
+     <!-- credit card task -->
+     <input type="text" class="form-control my-3" placeholder="Search Now" [(ngModel)]="creditCard" maxlength="16" >
+     <h1>{{creditCard | creditCardFormat }}</h1>
+</div>

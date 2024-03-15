@@ -1,0 +1,35 @@
+<div  class="container my-3">
+  <form (ngSubmit)="onsubmit(addform)" #addform="ngForm" >
+      <div class="form-group">
+          <label>id</label>
+        <input type="text" class="form-control" placeholder="Enter id" [(ngModel)]="product.id"  name="id" >
+      </div>
+      <div class="form-group">
+          <label>name</label>
+        <input  type="text" class="form-control" placeholder="Enter name" [(ngModel)]="product.name"   name="name" >
+      </div>
+      <div class="form-group">
+          <label>price</label>
+        <input  type="number" class="form-control" placeholder="Enter price" [(ngModel)]="product.price"   name="price" >
+      </div>
+      <div class="form-group">
+          <label>catg</label>
+        <input  type="text" class="form-control" placeholder="Enter catg" [(ngModel)]="product.catg"   name="catg" >
+      </div>
+      <div class="form-group">
+          <label>imgUrl</label>
+        <input  type="text" class="form-control" placeholder="Enter imgUrl" [(ngModel)]="product.imgUrl"   name="imgUrl" >
+      </div>
+      <div class="form-group">
+          <label>quantity</label>
+        <input  type="number" class="form-control" placeholder="Enter quantity"  [(ngModel)]="product.quantity"  name="quantity" >
+      </div>
+      <div class="form-group">
+          <label>qWanted</label>
+        <input  type="number" class="form-control" placeholder="Enter qWanted" [(ngModel)]="product.qWanted"   name="qWanted" >
+      </div>
+      <div class="my-3">
+          <button class="btn btn-primary" [disabled]="addform.invalid">add product</button>
+      </div>
+  </form>
+</div>

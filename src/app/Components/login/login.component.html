@@ -1,0 +1,22 @@
+<div class="container my-3">
+    <form (ngSubmit)="onsubmit(signin)" #signin="ngForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter email" #email="ngModel" name="email" [(ngModel)]="user.email" required>
+        </div>
+        @if (email.invalid && email.dirty && email.touched) {
+            <span class="text-danger">user is required</span>
+        }
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control"  placeholder="Password" #password="ngModel" name="password" [(ngModel)]="user.password" required >
+        </div>
+        @if (password.invalid && password.dirty && password.touched) {
+            <span class="text-danger">user is required</span>
+        }
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="signin.invalid">login</button>
+      </form>
+</div>
